@@ -1,12 +1,6 @@
 # Clean Architecture in Next.js
 
-This repo is an example of how to achieve Clean Architecture in Next.js. There's
-a video tutorial that goes through this project. Click on the image to check it
-out on YouTube:
-
-[![Clean Architecture in Next.js](https://img.youtube.com/vi/jJVAla0dWJo/0.jpg)](https://www.youtube.com/watch?v=jJVAla0dWJo)
-
-You can run the project just by running `npm install` and `npm run dev`.
+This repo is an example of how to achieve Clean Architecture in Next.js.
 
 ## Clean Architecture
 
@@ -169,84 +163,6 @@ layers depend only on layers **below them**, but not above.
     services, controllers, and use cases to Symbols, and we "resolve" them using
     those symbols when we need the actual implementation. That's how we can use
     the implementation, without needing to explicitly depend on it (import it).
-
-## FAQ
-
-> [!TIP]
-> If you have a question not covered by the FAQ, feel free to either [open an Issue](https://github.com/nikolovlazar/nextjs-clean-architecture/issues/new)
-> in this repo, or join [my Discord server](https://creatures.sh) and start a
-> conversation there.
-
-<details>
-  <summary><b>Is Clean Architecture / this implementation serverless-friendly? Can I deploy this to Vercel?</b></summary>
-
-Yes! You can use it with Page Router, App Router, Middleware, API Handlers,
-Server Actions, anything really! Usually, achieving Dependency Injection in
-JavaScript projects is being done with the [Inversify.js](https://inversify.io)
-library, which is incompatible with other runtimes except Node. This project
-implements [ioctopus](https://github.com/Evyweb/ioctopus), a simple IoC
-container that doesn't rely on `reflect-metadata` and works on all runtimes.
-
-</details>
-
-<details>
-  <summary><b>Should I start implementing Clean Architecture immediately when I create my Next.js project?</b></summary>
-
-I'd say **no**. If you're starting a brand new project, I'd advise you to focus
-on achieving an MVP status as fast as possible (so you can validate your idea /
-see if there's a future for your project). When things start to get serious
-(more features start to get implemented, your user base experiences a
-significant growth, or you're onboarding other developers in your project),
-that's when you'd want to invest some time into adapting this architecture (or
-any architecture for that matter).
-
-If you're already deep in the weeds on a project, you (and your team) can plan
-for gradual refactoring starting from the next sprint. In this case you already
-have the code written, you just need to reorganize it a little bit, and you can
-do that part by part, route handler by route handler, server action by server
-action. By the way, I say it lightly _"you just need to reorganize it a little
-bit"_, but it can be far from being as simple as that. Always take into account
-"things going wrong" when you plan the refactoring. And put some time in for
-writing tests!
-
-</details>
-<details>
-<summary><b>This looks like overengineering, and complicates feature development.</b></summary>
-
-If you don't spend more than 3 minutes thinking about this, then yes, it does
-look like overengineering. But if you do, you'll realize that **architecture =
-discipline**. The architecture is a contract between the developers that defines
-what goes where. It actually **simplifies** the feature development because it
-makes the codebase predictable, and it makes those decisions for you.
-
-You can't grow a project sustainably if every developer working on it writes
-code where it's the most convenient. The codebase will turn into a nightmare to
-work with, and that's when you'll feel a real complicated feature development
-process. To battle this, eventually you will put down some rules. Those rules
-will grow as your team faces and solves new issues. Put all those rules in a
-document, and there's your very own architecture definition. You still implement
-some sort of an architecture, you just reached that point very slowly and
-painfully.
-
-Clean Architecture gives you a shortcut and a predefined architecture that's
-been tested. And yes, sure, you do need to learn all of this, but you do it once
-in your lifetime, and then just apply the principles in any language or
-framework you'll be using in future.
-
-</details>
-<details>
-<summary><b>Should I apply Clean Architecture in all of my projects?</b></summary>
-
-**No**. Not if you don't expect the project to grow, both in number of features,
-or number of users, or number of developers working on it.
-
-</details>
-<details>
-  <summary><b>What are other similar architectures to Clean Architecture?</b></summary>
-
-As mentioned in the
-[original blog post](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-I mentioned at the top of the README, you got:
 
 - [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/)
   (a.k.a. Ports and Adapters) by Alistair Cockburn
